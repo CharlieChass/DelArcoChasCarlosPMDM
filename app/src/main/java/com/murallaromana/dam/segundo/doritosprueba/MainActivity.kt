@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this,SegundaActivity::class.java)
             startActivity(intent)
-            binding.ettNombre.setText("")
+            binding.ettGmail.setText("")
             binding.ettContraseA.setText("")
         }
     }
