@@ -1,5 +1,6 @@
 package com.murallaromana.dam.segundo.doritosprueba
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,5 +22,8 @@ class MainActivity : AppCompatActivity() {
             binding.ettGmail.setText("")
             binding.ettContraseA.setText("")
         }
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        //val gmail =
+
     }
 }
