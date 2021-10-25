@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
             binding.ettContraseA.setText("")
         }
         val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        //val gmail =
 
     }
 }
