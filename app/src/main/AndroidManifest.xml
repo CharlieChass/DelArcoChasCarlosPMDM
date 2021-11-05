@@ -9,21 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DoritosPrueba">
+
         <activity
-            android:name=".SegundaActivity"
+            android:name=".activites.RegistroActivity"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activites.LoginActivity" />
         </activity>
+
         <activity
-            android:name=".MainActivity"
+            android:name=".activites.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activites.PeliculasActivity"
+            android:exported="true">
         </activity>
     </application>
 
