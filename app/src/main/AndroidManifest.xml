@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DoritosPrueba">
-
+        <activity
+            android:name=".activites.DetallesPeliculas"
+            android:exported="true" />
         <activity
             android:name=".activites.RegistroActivity"
             android:exported="true">
@@ -17,7 +19,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activites.LoginActivity" />
         </activity>
-
         <activity
             android:name=".activites.LoginActivity"
             android:exported="true">
@@ -27,11 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activites.PeliculasActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

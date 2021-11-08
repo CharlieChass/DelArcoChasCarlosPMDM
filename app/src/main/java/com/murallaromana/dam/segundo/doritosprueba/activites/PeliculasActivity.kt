@@ -19,7 +19,7 @@ class PeliculasActivity :AppCompatActivity() {
         val listaPeliculas = peliculasData.getTodos()
 
         val layoutManager = LinearLayoutManager(this)
-        val adapter = ListaPeliculasAdapter(listaPeliculas)
+        val adapter = ListaPeliculasAdapter(listaPeliculas,this)
 
         binding.rvPeliculas.adapter = adapter
         binding.rvPeliculas.layoutManager = layoutManager
