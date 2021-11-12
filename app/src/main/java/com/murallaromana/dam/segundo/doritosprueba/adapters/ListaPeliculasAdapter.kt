@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.murallaromana.dam.segundo.doritosprueba.R
 import com.murallaromana.dam.segundo.doritosprueba.activites.DetallesPeliculas
@@ -21,7 +22,7 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>,val activity: Activity
         val tvGenero = itemView.findViewById<TextView>(R.id.tvGenero)
         val tvNota = itemView.findViewById<TextView>(R.id.tvNota)
         val ivPelicula = itemView.findViewById<ImageView>(R.id.ivPelicula)
-        val layoutPelicula = itemView.findViewById<CardView>(R.id.layoutPelicula)
+        val layoutPelicula = itemView.findViewById<ConstraintLayout>(R.id.layoutPelicula)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
@@ -43,7 +44,9 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>,val activity: Activity
 
         holder.layoutPelicula.setOnClickListener{
         val intent = Intent(activity,DetallesPeliculas::class.java)
+            intent.putExtra("pelicula",pelicula)
             activity.startActivity(intent)
+
         }
     }
 

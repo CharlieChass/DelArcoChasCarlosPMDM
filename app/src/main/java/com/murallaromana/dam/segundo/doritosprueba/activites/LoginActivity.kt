@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("doritos-prueba", Context.MODE_PRIVATE)
         val email = sharedPref.getString("gmail", "")
-        Log.d("MainActivity", "Email cargado: ${email}")
+        Log.d("LoginActivity", "Email cargado: ${email}")
         binding.ettGmail.setText(email)
 
         binding.btCrear.setOnClickListener(){
