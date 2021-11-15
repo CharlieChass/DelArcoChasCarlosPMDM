@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_secondary_variant"
+    android:background="@color/bluePrimari"
     tools:context=".activites.LoginActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Inicio De Sesión"
+        android:text="Login"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,79 +26,73 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <TextView
-        android:id="@+id/tvGmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Gmail:"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.253"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
-
-    <EditText
-        android:id="@+id/ettGmail"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.208"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGmail"
-        tools:text="Gmail" />
-
-    <TextView
-        android:id="@+id/tvContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Contraseña:"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ettGmail" />
-
-    <EditText
-        android:id="@+id/ettContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textColor="@color/teal_200"
-        android:textColorHint="@color/teal_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.208"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvContraseña" />
-
     <Button
         android:id="@+id/btAceptar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="32dp"
         android:text="Aceptar"
         android:textColor="@color/black"
+        android:backgroundTint="@color/blueClaro"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ettContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/tilContraseña" />
 
     <Button
         android:id="@+id/btCrear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="32dp"
         android:text="Crear Cuenta"
         android:textColor="@color/black"
+        android:backgroundTint="@color/blueClaro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/ettContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/tilContraseña" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tieGmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+            android:hint="Gmail"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilContraseña"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tieContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:hint="Contraseña" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

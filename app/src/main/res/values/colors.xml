@@ -10,4 +10,7 @@
     <color name="botonesAzul">#FF03DAC5</color>
     <color name="primario1">#33ccc6</color>
     <color name="primario2">#c2f0ee</color>
+    <color name="bluePrimari">#90caf9</color>
+    <color name="blueClaro">#c3fdff</color>
+    <color name="blueOscuro">#2286c3</color>
 </resources>

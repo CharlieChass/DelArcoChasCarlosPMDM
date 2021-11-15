@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_700">
+    android:background="@color/bluePrimari">
 
 
     <TextView
@@ -21,19 +21,19 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilNombre"
-        android:layout_width="366dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="337dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/tvCuenta">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/teal_700"
+            android:background="@color/bluePrimari"
             android:hint="Nombre"
             android:textColor="@color/black" />
 
@@ -41,44 +41,95 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilApellidos"
-        android:layout_width="366dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="337dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/tilNombre">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieApellidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/teal_700"
+            android:background="@color/bluePrimari"
             android:hint="Apellido" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilGmail"
-        android:layout_width="366dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="337dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/tilApellidos">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieGmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/teal_700"
+            android:background="@color/bluePrimari"
             android:hint="Gmail" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fecha de Nacimiento:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tilGmail" />
+
+    <EditText
+        android:id="@+id/etdFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="dd/mm/yy"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
+
+    <TextView
+        android:id="@+id/tvCContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Contraseña:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/etdFecha" />
+
+    <EditText
+        android:id="@+id/ettCrearContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCContraseña" />
 
     <Button
         android:id="@+id/btCuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="84dp"
+        android:backgroundTint="@color/blueClaro"
         android:text="Crear Cuenta"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,18 +137,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ettCrearContraseña"
-        app:layout_constraintVertical_bias="0.295" />
-
-    <TextView
-        android:id="@+id/tvFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Fecha de Nacimiento:"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="0.676"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilGmail" />
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -105,41 +145,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
-
-    <EditText
-        android:id="@+id/etdFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
-
-    <EditText
-        android:id="@+id/ettCrearContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCContraseña" />
-
-    <TextView
-        android:id="@+id/tvCContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Contraseña:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etdFecha" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
