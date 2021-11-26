@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bluePrimari"
-    tools:context=".activites.LoginActivity">
+    tools:context="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.LoginActivity">
 
     <TextView
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Login"
+        android:text="Inicio De Sesión"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

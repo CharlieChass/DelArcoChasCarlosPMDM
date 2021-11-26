@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+<dimen name="Til_Width">386dp</dimen>
+    <dimen name="Til_height">51dp</dimen>
 </resources>

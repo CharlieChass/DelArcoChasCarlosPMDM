@@ -1,4 +1,4 @@
-package com.murallaromana.dam.segundo.doritosprueba.model.entidades
+package com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades
 
 import java.io.Serializable
 

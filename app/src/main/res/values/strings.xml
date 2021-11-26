@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Peliculas</string>
+    <string name="add_pelicula">Añadir una Pelicula</string>
 </resources>

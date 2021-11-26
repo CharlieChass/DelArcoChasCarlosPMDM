@@ -1,12 +1,10 @@
-package com.murallaromana.dam.segundo.doritosprueba.activites
+package com.murallaromana.dam.segundo.aplicacionpeliculas.activites
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import com.murallaromana.dam.segundo.doritosprueba.databinding.ActivityMainBinding
+import com.murallaromana.dam.segundo.aplicacionpeliculas.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,7 +17,6 @@ class LoginActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("doritos-prueba", Context.MODE_PRIVATE)
         val email = sharedPref.getString("gmail", "")
-        Log.d("LoginActivity", "Email cargado: ${email}")
         binding.tieGmail.setText(email)
 
         binding.btCrear.setOnClickListener(){

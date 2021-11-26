@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.murallaromana.dam.segundo.doritosprueba">
+    package="com.murallaromana.dam.segundo.aplicacionpeliculas">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -8,26 +8,33 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DoritosPrueba">
+        android:theme="@style/Theme.AplicacionPeliculas">
         <activity
-            android:name=".activites.DetallesPeliculas"
-            android:exported="true">
+            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.AddPeliculaActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.DetallesPeliculas"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activites.PeliculasActivity" />
+                android:value="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.PeliculasActivity" />
         </activity>
         <activity
-            android:name=".activites.RegistroActivity"
-            android:exported="true">
+            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.RegistroActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activites.LoginActivity" />
+                android:value="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.LoginActivity" />
         </activity>
         <activity
-            android:name=".activites.LoginActivity"
-            android:exported="true">
+            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,11 +42,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activites.PeliculasActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activites.LoginActivity" />
+            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.PeliculasActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
