@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.murallaromana.dam.segundo.aplicacionpeliculas.App
 import com.murallaromana.dam.segundo.aplicacionpeliculas.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.aplicacionpeliculas.databinding.PeliculasActivityBinding
-import com.murallaromana.dam.segundo.aplicacionpeliculas.model.data.PeliculasDataMockImpl
 
 class PeliculasActivity :AppCompatActivity() {
     private lateinit var binding: PeliculasActivityBinding
@@ -31,5 +30,11 @@ class PeliculasActivity :AppCompatActivity() {
         binding.rvPeliculas.adapter = adapter
         binding.rvPeliculas.layoutManager = layoutManager
 
+    }
+    override fun onBackPressed() {
+        val a = Intent(Intent.ACTION_MAIN)
+        a.addCategory(Intent.CATEGORY_HOME)
+        a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(a)
     }
 }

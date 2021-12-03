@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvLogin">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tieGmail"
+            android:id="@+id/tieCorreo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"

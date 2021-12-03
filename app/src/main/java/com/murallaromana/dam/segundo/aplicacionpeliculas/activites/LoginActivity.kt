@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.murallaromana.dam.segundo.aplicacionpeliculas.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -15,19 +16,32 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPref = getSharedPreferences("doritos-prueba", Context.MODE_PRIVATE)
-        val email = sharedPref.getString("gmail", "")
-        binding.tieGmail.setText(email)
-
-        binding.btCrear.setOnClickListener(){
+        binding.btCrear.setOnClickListener() {
 
             val intent = Intent(this, RegistroActivity::class.java)
             startActivity(intent)
         }
 
-            binding.btAceptar.setOnClickListener() {
+        val sharedPref = getSharedPreferences("peliculas", Context.MODE_PRIVATE)
+        val email = sharedPref.getString("email", "")
+        binding.tieCorreo.setText(email)
+        binding.btAceptar.setOnClickListener() {
+
+            if (binding.tieCorreo.text.toString() == email) {
                 val intent = Intent(this, PeliculasActivity::class.java)
                 startActivity(intent)
+            } else {
+                val dialog = AlertDialog.Builder(this)
+                    .setTitle("Correo no es valido")
+                    .setMessage("Ese correo no esta Registrado")
+                    .setPositiveButton("Aceptar") { view, _ ->
+                        binding.tieCorreo.setText("")
+                        view.dismiss()
+                    }
+                    .setCancelable(false)
+                    .create()
+                dialog.show()
             }
+        }
     }
 }

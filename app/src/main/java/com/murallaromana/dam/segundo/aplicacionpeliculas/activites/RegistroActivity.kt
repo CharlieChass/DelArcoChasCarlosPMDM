@@ -17,12 +17,12 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btCuenta.setOnClickListener {
-            val sharedPref = getSharedPreferences("doritos-prueba", Context.MODE_PRIVATE)
+            val sharedPref = getSharedPreferences("peliculas", Context.MODE_PRIVATE)
             val editor = sharedPref.edit()
 
-            editor.putString("gmail",binding.tieGmail.text.toString())
+            editor.putString("email",binding.tieCorreo.text.toString())
             editor.putString("password",binding.ettCrearContraseA.text.toString())
-            editor.commit()
+            editor.apply()
 
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

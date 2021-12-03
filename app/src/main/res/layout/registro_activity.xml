@@ -58,7 +58,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilGmail"
+        android:id="@+id/tilCorreo"
         android:layout_width="337dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
@@ -68,11 +68,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tilApellidos">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tieGmail"
+            android:id="@+id/tieCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/bluePrimari"
-            android:hint="Gmail" />
+            android:hint="Correo" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tilGmail" />
+        app:layout_constraintTop_toBottomOf="@+id/tilCorreo" />
 
     <EditText
         android:id="@+id/etdFecha"
