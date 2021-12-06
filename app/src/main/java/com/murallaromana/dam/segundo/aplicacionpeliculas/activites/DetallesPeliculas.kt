@@ -24,10 +24,10 @@ class DetallesPeliculas : AppCompatActivity() {
 
         pelicula = intent.extras?.get("pelicula") as Pelicula
 
-        //binding.tvDetalleTitulo.setText(pelicula.titulo)
         Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
         binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
         binding.tvDetallesDirector.setText(pelicula.director)
+        binding.tvResumen.setText(pelicula.resumen)
 
         if(pelicula !=null) setTitle(pelicula.titulo)
         else setTitle("Nueva Pelicula")

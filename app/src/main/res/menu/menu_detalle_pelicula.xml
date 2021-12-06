@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_save_or_update"
-        android:icon="@drawable/ic_baseline_check_24"
+        android:icon="@android:drawable/ic_menu_edit"
         android:orderInCategory="300"
         android:title="Guardar"
         app:showAsAction="ifRoom" />

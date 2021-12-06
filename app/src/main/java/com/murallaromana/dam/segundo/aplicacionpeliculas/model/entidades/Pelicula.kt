@@ -8,5 +8,6 @@ class Pelicula (
     var director: String,
     var nota: Double,
     var telefonoDirector: String,
-    var URL: String
+    var URL: String,
+    var resumen: String
 ):Serializable

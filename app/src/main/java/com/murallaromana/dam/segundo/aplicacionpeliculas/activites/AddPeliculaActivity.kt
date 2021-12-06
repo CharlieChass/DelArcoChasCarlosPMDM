@@ -30,7 +30,8 @@ class AddPeliculaActivity : AppCompatActivity() {
                             //binding.TiePuntuacion.text.toString().toDouble(),
                             2.5,
                             binding.TieNumeroDirector.text.toString(),
-                            binding.TieURL.text.toString()
+                            binding.TieURL.text.toString(),
+                            binding.tvAddResumen.text.toString()
                         )
                     )
                     Toast.makeText(this, "Pelicula Añadida", Toast.LENGTH_SHORT).show()
