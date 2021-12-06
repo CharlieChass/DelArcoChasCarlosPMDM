@@ -133,6 +133,25 @@
             android:hint="URL" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TILResumen"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="20dp"
+        android:background="@color/bluePrimari"
+        android:backgroundTint="@color/bluePrimari"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TilURL">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TieResumen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bluePrimari"
+            android:hint="Resumen" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btAñadirPelicula"
         android:layout_width="wrap_content"
@@ -150,16 +169,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.50121653" />
-
-    <TextView
-        android:id="@+id/tvAddResumen"
-        android:layout_width="@dimen/Til_Width"
-        android:layout_height="@dimen/Til_height"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TilURL"
-        tools:text="Resumen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

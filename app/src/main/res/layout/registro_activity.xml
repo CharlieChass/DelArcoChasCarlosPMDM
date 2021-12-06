@@ -21,12 +21,13 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilNombre"
-        android:layout_width="337dp"
+        android:layout_width="150dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/tilApellidos"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCuenta">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -41,13 +42,13 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilApellidos"
-        android:layout_width="337dp"
+        android:layout_width="200dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tilNombre">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tilNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tvCuenta">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieApellidos"
@@ -59,13 +60,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilCorreo"
-        android:layout_width="337dp"
-        android:layout_height="52dp"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tilApellidos">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieCorreo"
@@ -76,58 +76,23 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/tvFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Fecha de Nacimiento:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tilCorreo" />
-
-    <EditText
-        android:id="@+id/etdFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="DD/MM/YY"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
-
-    <TextView
-        android:id="@+id/tvCContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Contraseña:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/etdFecha" />
-
     <EditText
         android:id="@+id/ettCrearContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="Contraseña"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tvCContraseña" />
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilCorreo" />
 
     <Button
         android:id="@+id/btCuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="84dp"
         android:backgroundTint="@color/blueClaro"
         android:text="Crear Cuenta"
@@ -137,7 +102,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ettCrearContraseña"
-        app:layout_constraintVertical_bias="0.13999999" />
+        app:layout_constraintVertical_bias="0.120000005" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -152,6 +117,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="48dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/fecha_nacimiento"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilNombre" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
