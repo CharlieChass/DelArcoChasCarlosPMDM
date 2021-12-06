@@ -1,5 +1,6 @@
 package com.murallaromana.dam.segundo.aplicacionpeliculas.activites
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -41,8 +42,15 @@ class DetallesPeliculas : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save_or_update -> {
-                Toast.makeText(this, "Pelicula guardada correctamente.", Toast.LENGTH_SHORT).show()
-                finish()
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Editar la  Pelicula")
+                    .setMessage("¿Quieres editar la pelicula?")
+                    .setPositiveButton("Aceptar") { _, _ ->
+                        //Editar Pelicula
+
+                        finish()
+                    }.setNegativeButton("Cancelar", null)
+                    .show()
                 true
             }
             R.id.action_delete->{
