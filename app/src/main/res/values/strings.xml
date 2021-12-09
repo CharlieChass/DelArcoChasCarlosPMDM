@@ -2,4 +2,7 @@
     <string name="app_name">CinePlus</string>
     <string name="add_pelicula">Añadir una Pelicula</string>
     <string name="fecha_nacimiento">Fecha de Nacimiento</string>
+    <string name="director">Director:</string>
+    <string name="telefono">Telefono:</string>
+    <string name="genero">Genero:</string>
 </resources>

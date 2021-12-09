@@ -1,6 +1,7 @@
 package com.murallaromana.dam.segundo.aplicacionpeliculas.activites
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -26,7 +27,16 @@ class DetallesPeliculas : AppCompatActivity() {
         pelicula = intent.extras?.get("pelicula") as Pelicula
 
         Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
-        binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
+
+        //LLamada Director
+        binding.tvDetallesTelefono.setOnClickListener(){
+            val telefono = binding.tvDetallesTelefono.text.toString()
+            val llamada = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse(telefono)
+            startActivity(llamada)
+        }
+        //binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
+
         binding.tvDetallesDirector.setText(pelicula.director)
         binding.tvResumen.setText(pelicula.resumen)
 
