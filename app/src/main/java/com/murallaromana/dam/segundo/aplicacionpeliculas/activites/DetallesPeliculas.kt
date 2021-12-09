@@ -1,5 +1,6 @@
 package com.murallaromana.dam.segundo.aplicacionpeliculas.activites
 
+import android.R.attr
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,10 @@ import com.murallaromana.dam.segundo.aplicacionpeliculas.R
 import com.murallaromana.dam.segundo.aplicacionpeliculas.databinding.ActivityDetallesPeliculasBinding
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
 import com.squareup.picasso.Picasso
+import android.R.attr.phoneNumber
+
+
+
 
 class DetallesPeliculas : AppCompatActivity() {
 
@@ -30,12 +35,12 @@ class DetallesPeliculas : AppCompatActivity() {
 
         //LLamada Director
         binding.tvDetallesTelefono.setOnClickListener(){
-            val telefono = binding.tvDetallesTelefono.text.toString()
-            val llamada = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse(telefono)
-            startActivity(llamada)
+            val intent2 = Intent(Intent.ACTION_DIAL)
+            intent2.data = Uri.parse("tel:" + binding.tvDetallesTelefono.text.toString())
+            startActivity(intent2)
+
         }
-        //binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
+        binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
 
         binding.tvDetallesDirector.setText(pelicula.director)
         binding.tvResumen.setText(pelicula.resumen)
