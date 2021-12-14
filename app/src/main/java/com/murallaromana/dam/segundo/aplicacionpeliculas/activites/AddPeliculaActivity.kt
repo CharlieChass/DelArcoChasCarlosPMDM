@@ -20,12 +20,7 @@ class AddPeliculaActivity : AppCompatActivity() {
 
         val pelicula = intent.getSerializableExtra("pelicula") as Pelicula?
 
-        if(pelicula == null){//EDITAR PELICULA
-
-        binding.TieTitulo.setText(pelicula?.titulo)
-        binding.TieDirector.setText(pelicula?.director)
-
-        }else{//AÑADIR PELICULA
+        if(pelicula == null){//Añadir PELICULA
             binding.btAAdirPelicula.setOnClickListener() {
                 if (binding.TieTitulo == null) {
                     Toast.makeText(this, "Rellena Titulo", Toast.LENGTH_SHORT).show()
@@ -59,6 +54,11 @@ class AddPeliculaActivity : AppCompatActivity() {
                     }
                 }
             }
+
+        }else{//Editar PELICULA
+
+            binding.TieTitulo.setText(pelicula?.titulo)
+            binding.TieDirector.setText(pelicula?.director)
         }
 
     }
