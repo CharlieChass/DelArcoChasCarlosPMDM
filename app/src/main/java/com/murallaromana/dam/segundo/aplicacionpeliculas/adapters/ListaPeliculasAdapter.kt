@@ -40,7 +40,7 @@ class ListaPeliculasAdapter(val peliculas: MutableList<Pelicula>, val activity: 
         holder.tvTitulo.setText(pelicula.titulo)
         holder.tvGenero.setText(pelicula.genero)
         holder.tvNota.setText(pelicula.nota.toString())
-        holder.tvDirector.setText(pelicula.director.toString())
+        holder.tvDirector.setText(pelicula.director)
         Picasso.get().load(pelicula.URL).into(holder.ivPelicula)
 
         holder.layoutPelicula.setOnClickListener{

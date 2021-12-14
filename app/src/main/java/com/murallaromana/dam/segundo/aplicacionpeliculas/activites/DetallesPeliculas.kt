@@ -57,15 +57,14 @@ class DetallesPeliculas : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save_or_update -> {
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Editar la  Pelicula")
-                    .setMessage("¿Quieres editar la pelicula?")
-                    .setPositiveButton("Aceptar") { _, _ ->
-                        //Editar Pelicula
+               val intent = Intent(this, AddPeliculaActivity::class.java)
 
-                        finish()
-                    }.setNegativeButton("Cancelar", null)
-                    .show()
+                //TODO Aqui tenemos que hacer los putExtra con datos de la pelicula
+                //igual que en el adapter de la lista para pasar los datos
+                intent.putExtra("pelicula",pelicula)
+
+                //Iniciar la activity
+                startActivity(intent)
                 true
             }
             R.id.action_delete->{
