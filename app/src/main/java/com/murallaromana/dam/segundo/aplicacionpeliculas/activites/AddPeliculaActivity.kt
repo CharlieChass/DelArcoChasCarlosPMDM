@@ -22,7 +22,8 @@ class AddPeliculaActivity : AppCompatActivity() {
 
         if(pelicula == null){//EDITAR PELICULA
 
-
+        binding.TieTitulo.setText(pelicula?.titulo)
+        binding.TieDirector.setText(pelicula?.director)
 
         }else{//AÑADIR PELICULA
             binding.btAAdirPelicula.setOnClickListener() {
