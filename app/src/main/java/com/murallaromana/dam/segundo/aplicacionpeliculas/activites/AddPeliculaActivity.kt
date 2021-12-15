@@ -20,7 +20,7 @@ class AddPeliculaActivity : AppCompatActivity() {
 
         val pelicula = intent.getSerializableExtra("pelicula") as Pelicula?
 
-        if(pelicula == null){//Añadir PELICULA
+        if (pelicula == null) {//Añadir PELICULA
             binding.btAAdirPelicula.setOnClickListener() {
                 if (binding.TieTitulo == null) {
                     Toast.makeText(this, "Rellena Titulo", Toast.LENGTH_SHORT).show()
@@ -40,7 +40,7 @@ class AddPeliculaActivity : AppCompatActivity() {
                         )
                         Toast.makeText(this, "Pelicula Añadida", Toast.LENGTH_SHORT).show()
                         finish()
-                    }else{
+                    } else {
                         //Crear AlertDialog
                         val dialog = AlertDialog.Builder(this)
                             .setTitle("Faltan Datos")
@@ -55,10 +55,19 @@ class AddPeliculaActivity : AppCompatActivity() {
                 }
             }
 
-        }else{//Editar PELICULA
+        } else {//Editar PELICULA
 
             binding.TieTitulo.setText(pelicula?.titulo)
             binding.TieDirector.setText(pelicula?.director)
+            binding.TieGenero.setText(pelicula.genero)
+            binding.TieNumeroDirector.setText(pelicula.telefonoDirector)
+            binding.TiePuntuacion.setText(pelicula.nota.toString())
+            binding.TieURL.setText(pelicula.URL)
+            binding.TieResumen.setText(pelicula.resumen)
+
+            binding.btAAdirPelicula.setOnClickListener() {
+
+            }
         }
 
     }

@@ -7,18 +7,6 @@
     android:background="@color/bluePrimari"
     tools:context="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.AddPeliculaActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_pelicula"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/TilTitulo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TilTitulo"
         android:layout_width="@dimen/Til_Width"
@@ -157,11 +145,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blueClaro"
-        android:text="Añadir Pelicula"
+        android:text="Aceptar"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TILResumen" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
