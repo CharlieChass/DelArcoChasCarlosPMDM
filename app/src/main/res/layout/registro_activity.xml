@@ -65,7 +65,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate">
+        app:layout_constraintTop_toBottomOf="@+id/etDate">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieCorreo"
@@ -85,7 +85,7 @@
         android:hint="Contraseña"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilCorreo" />
 
@@ -119,7 +119,7 @@
         app:layout_constraintGuide_begin="48dp" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/etDate"
         android:layout_width="@dimen/Til_Width"
         android:layout_height="@dimen/Til_height"
         android:layout_marginTop="16dp"

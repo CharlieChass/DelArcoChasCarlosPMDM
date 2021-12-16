@@ -57,8 +57,8 @@ class AddPeliculaActivity : AppCompatActivity() {
 
         } else {//Editar PELICULA
 
-            binding.TieTitulo.setText(pelicula?.titulo)
-            binding.TieDirector.setText(pelicula?.director)
+            binding.TieTitulo.setText(pelicula.titulo)
+            binding.TieDirector.setText(pelicula.director)
             binding.TieGenero.setText(pelicula.genero)
             binding.TieNumeroDirector.setText(pelicula.telefonoDirector)
             binding.TiePuntuacion.setText(pelicula.nota.toString())
@@ -66,9 +66,23 @@ class AddPeliculaActivity : AppCompatActivity() {
             binding.TieResumen.setText(pelicula.resumen)
 
             binding.btAAdirPelicula.setOnClickListener() {
-
+                App.peliculas.add(
+                    Pelicula(
+                        binding.TieTitulo.text.toString(),
+                        binding.TieGenero.text.toString(),
+                        binding.TieDirector.text.toString(),
+                        //binding.TiePuntuacion.text.toString().toDouble(),
+                        2.5,
+                        binding.TieNumeroDirector.text.toString(),
+                        binding.TieURL.text.toString(),
+                        binding.TieResumen.text.toString()
+                    )
+                )
+                intent.putExtra("pelicula",pelicula)
+                finish()
             }
         }
 
     }
 }
+

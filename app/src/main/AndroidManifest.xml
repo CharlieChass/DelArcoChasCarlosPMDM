@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,26 +14,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionPeliculas">
         <activity
-            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.AddPeliculaActivity"
+            android:name=".activites.EditPeliculaActivity"
             android:exported="true" />
         <activity
-            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.DetallesPeliculas"
+            android:name=".activites.AddPeliculaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activites.DetallesPeliculas"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.PeliculasActivity" />
+                android:value=".activites.PeliculasActivity" />
         </activity>
         <activity
-            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.RegistroActivity"
+            android:name=".activites.RegistroActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.LoginActivity" />
+                android:value=".activites.LoginActivity" />
         </activity>
         <activity
-            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.LoginActivity"
+            android:name=".activites.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -42,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.PeliculasActivity"
+            android:name=".activites.PeliculasActivity"
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>

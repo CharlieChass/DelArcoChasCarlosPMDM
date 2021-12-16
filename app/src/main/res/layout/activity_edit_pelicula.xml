@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bluePrimari"
+    tools:context="com.murallaromana.dam.segundo.aplicacionpeliculas.activites.AddPeliculaActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TilTitulo"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TieTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bluePrimari"
+            android:hint="Titulo"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TilGenero"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TilTitulo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TieGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bluePrimari"
+            android:hint="Genero"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TilDirector"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TilGenero">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TieDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bluePrimari"
+            android:hint="Director"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TilNumeroDirector"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TilDirector">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TieNumeroDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bluePrimari"
+            android:hint="Numero Del Director"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TilPuntuacion"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TilNumeroDirector"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TiePuntuacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bluePrimari"
+            android:hint="Puntuación de la Pelicula"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TilURL"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TilPuntuacion">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TieURL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bluePrimari"
+            android:hint="URL" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TILResumen"
+        android:layout_width="@dimen/Til_Width"
+        android:layout_height="@dimen/Til_height"
+        android:layout_marginTop="20dp"
+        android:background="@color/bluePrimari"
+        android:backgroundTint="@color/bluePrimari"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TilURL">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TieResumen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bluePrimari"
+            android:hint="Resumen" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btAñadirPelicula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blueClaro"
+        android:text="Aceptar"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TILResumen" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50121653" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
