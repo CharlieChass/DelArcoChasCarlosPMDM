@@ -5,6 +5,7 @@ import com.murallaromana.dam.segundo.aplicacionpeliculas.model.data.PeliculasDat
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
 
 class App: Application() {
+
     companion object{
         var peliculas: MutableList<Pelicula> = ArrayList()
     }

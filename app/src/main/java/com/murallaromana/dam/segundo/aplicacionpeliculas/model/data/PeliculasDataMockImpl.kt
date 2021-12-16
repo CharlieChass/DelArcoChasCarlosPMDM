@@ -7,7 +7,6 @@ import kotlin.collections.ArrayList
  open class PeliculasDataMockImpl : PeliculasData {
      override fun getTodos() = mutableListOf(
          Pelicula(
-
              "Venom: Habrá Matanza",
              "Acción",
              "Andy Serkis",
@@ -17,7 +16,6 @@ import kotlin.collections.ArrayList
              "Eddie Brock (Tom Hardy) y su simbionte Venom todavía están intentando descubrir cómo vivir juntos cuando un preso que está en el corredor de la muerte (Woody Harrelson) se infecta con un simbionte propio."
          ),
          Pelicula(
-
              "Clifford, el gran perro rojo",
              "Comedia",
              "Walt Becker",
@@ -27,7 +25,6 @@ import kotlin.collections.ArrayList
              "Cuando Emily Elizabeth conoce a un rescatador mágico de animales que le regala un pequeño cachorro rojo, nunca se hubiera imaginado que al despertarse se encontraría un sabueso gigante de tres metros en su pequeño apartamento de Nueva York. Mientras su madre soltera se encuentra de viaje de negocios, Emily y su divertido pero impulsivo tío Casey se embarcan en una gran aventura."
          ),
          Pelicula(
-
              "Shang-Chi y la leyenda de los Diez Anillos",
              "Acción",
              "Destin Daniel Cretton",
@@ -37,7 +34,6 @@ import kotlin.collections.ArrayList
              "Adaptación cinematográfica del héroe creado por Steve Englehart y Jim Starlin en 1973, un personaje mitad chino, mitad americano, cuyo característico estilo de combate mezclaba kung-fu, nunchacos y armas de fuego."
          ),
          Pelicula(
-
              "Encanto",
              "Familia",
              "Byron Howard",

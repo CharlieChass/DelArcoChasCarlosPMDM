@@ -20,6 +20,7 @@ class AddPeliculaActivity : AppCompatActivity() {
 
         val pelicula = intent.getSerializableExtra("pelicula") as Pelicula?
 
+
         if (pelicula == null) {//Añadir PELICULA
             binding.btAAdirPelicula.setOnClickListener() {
                 if (binding.TieTitulo == null) {
@@ -31,8 +32,7 @@ class AddPeliculaActivity : AppCompatActivity() {
                                 binding.TieTitulo.text.toString(),
                                 binding.TieGenero.text.toString(),
                                 binding.TieDirector.text.toString(),
-                                //binding.TiePuntuacion.text.toString().toDouble(),
-                                2.5,
+                                binding.TiePuntuacion.text.toString().toDouble(),
                                 binding.TieNumeroDirector.text.toString(),
                                 binding.TieURL.text.toString(),
                                 binding.TieResumen.text.toString()
@@ -66,23 +66,27 @@ class AddPeliculaActivity : AppCompatActivity() {
             binding.TieResumen.setText(pelicula.resumen)
 
             binding.btAAdirPelicula.setOnClickListener() {
-                App.peliculas.add(
-                    Pelicula(
-                        binding.TieTitulo.text.toString(),
-                        binding.TieGenero.text.toString(),
-                        binding.TieDirector.text.toString(),
-                        //binding.TiePuntuacion.text.toString().toDouble(),
-                        2.5,
-                        binding.TieNumeroDirector.text.toString(),
-                        binding.TieURL.text.toString(),
-                        binding.TieResumen.text.toString()
-                    )
+                val nuevaPelicula : Pelicula
+
+                nuevaPelicula = Pelicula(
+                    binding.TieTitulo.text.toString(),
+                    binding.TieGenero.text.toString(),
+                    binding.TieDirector.text.toString(),
+                    binding.TiePuntuacion.text.toString().toDouble(),
+                    binding.TieNumeroDirector.text.toString(),
+                    binding.TieURL.text.toString(),
+                    binding.TieResumen.text.toString()
                 )
-                intent.putExtra("pelicula",pelicula)
+                App.peliculas.find{it.titulo == pelicula.titulo}?.titulo = nuevaPelicula.titulo
+                App.peliculas.find{it.genero == pelicula.genero}?.genero = nuevaPelicula.genero
+                App.peliculas.find{it.director == pelicula.director}?.director = nuevaPelicula.director
+                App.peliculas.find{it.telefonoDirector == pelicula.telefonoDirector}?.telefonoDirector = nuevaPelicula.telefonoDirector
+                App.peliculas.find{it.nota == pelicula.nota}?.nota = nuevaPelicula.nota
+                App.peliculas.find{it.URL == pelicula.URL}?.URL = nuevaPelicula.URL
+                App.peliculas.find{it.resumen == pelicula.resumen}?.resumen = nuevaPelicula.resumen
                 finish()
             }
         }
-
     }
 }
 
