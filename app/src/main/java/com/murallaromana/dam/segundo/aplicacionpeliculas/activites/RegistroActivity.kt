@@ -28,4 +28,5 @@ class RegistroActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }

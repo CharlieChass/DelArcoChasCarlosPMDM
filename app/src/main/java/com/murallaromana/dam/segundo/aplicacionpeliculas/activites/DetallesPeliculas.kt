@@ -21,13 +21,17 @@ class DetallesPeliculas : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetallesPeliculasBinding
     private lateinit var pelicula: Pelicula
+    private var posicionPelicula: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetallesPeliculasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        pelicula = App.peliculas[posicionPelicula]
 
-        pelicula = intent.extras?.get("pelicula") as Pelicula
+//        pelicula = intent.extras?.get("pelicula") as Pelicula
+
+        posicionPelicula = intent.getIntExtra("position", 0)
 
         Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
 
@@ -38,10 +42,7 @@ class DetallesPeliculas : AppCompatActivity() {
             startActivity(intent2)
 
         }
-        binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
 
-        binding.tvDetallesDirector.setText(pelicula.director)
-        binding.tvResumen.setText(pelicula.resumen)
 
         if (pelicula != null) setTitle(pelicula.titulo)
         else setTitle("Nueva Pelicula")
@@ -82,5 +83,13 @@ class DetallesPeliculas : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
         return false
+    }
+    //Mostrar cambios al editar la pelicula
+    override fun onResume() {
+        super.onResume()
+        binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
+        binding.tvDetallesDirector.setText(pelicula.director)
+        binding.tvResumen.setText(pelicula.resumen)
+        title = pelicula.titulo
     }
 }

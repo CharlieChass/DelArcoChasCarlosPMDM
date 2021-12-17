@@ -1,5 +1,6 @@
 package com.murallaromana.dam.segundo.aplicacionpeliculas.activites
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -54,16 +55,9 @@ class AddPeliculaActivity : AppCompatActivity() {
                     }
                 }
             }
-
         } else {//Editar PELICULA
 
-            binding.TieTitulo.setText(pelicula.titulo)
-            binding.TieDirector.setText(pelicula.director)
-            binding.TieGenero.setText(pelicula.genero)
-            binding.TieNumeroDirector.setText(pelicula.telefonoDirector)
-            binding.TiePuntuacion.setText(pelicula.nota.toString())
-            binding.TieURL.setText(pelicula.URL)
-            binding.TieResumen.setText(pelicula.resumen)
+            rellenarEditadoPelicula(pelicula)
 
             binding.btAAdirPelicula.setOnClickListener() {
                 val nuevaPelicula: Pelicula
@@ -88,6 +82,7 @@ class AddPeliculaActivity : AppCompatActivity() {
                     resumen = nuevaPelicula.resumen
                 }
                 finish()
+
                 //App.peliculas.find{it.titulo == pelicula.titulo}?.titulo = nuevaPelicula.titulo
                 //App.peliculas.find{it.genero == pelicula.genero}?.genero = nuevaPelicula.genero
                 //App.peliculas.find{it.director == pelicula.director}?.director = nuevaPelicula.director
@@ -97,6 +92,15 @@ class AddPeliculaActivity : AppCompatActivity() {
                 //App.peliculas.find{it.resumen == pelicula.resumen}?.resumen = nuevaPelicula.resumen
             }
         }
+    }
+    fun rellenarEditadoPelicula(pelicula: Pelicula){
+        binding.TieTitulo.setText(pelicula.titulo)
+        binding.TieDirector.setText(pelicula.director)
+        binding.TieGenero.setText(pelicula.genero)
+        binding.TieNumeroDirector.setText(pelicula.telefonoDirector)
+        binding.TiePuntuacion.setText(pelicula.nota.toString())
+        binding.TieURL.setText(pelicula.URL)
+        binding.TieResumen.setText(pelicula.resumen)
     }
 }
 

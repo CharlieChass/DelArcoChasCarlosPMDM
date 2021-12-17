@@ -15,8 +15,9 @@ import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicul
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
 
-class ListaPeliculasAdapter(val peliculas: MutableList<Pelicula>, val activity: Activity): RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>(){
-    class PeliculasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class ListaPeliculasAdapter(val peliculas: MutableList<Pelicula>, val activity: Activity) :
+    RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
+    class PeliculasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val tvTitulo = itemView.findViewById<TextView>(R.id.tvTitulo)
         val tvGenero = itemView.findViewById<TextView>(R.id.tvGenero)
@@ -28,7 +29,7 @@ class ListaPeliculasAdapter(val peliculas: MutableList<Pelicula>, val activity: 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
         val layoutInflater =
-        LayoutInflater.from(parent.context).inflate(R.layout.item_pelicula, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_pelicula, parent, false)
 
 
         return PeliculasViewHolder(layoutInflater)
@@ -43,9 +44,10 @@ class ListaPeliculasAdapter(val peliculas: MutableList<Pelicula>, val activity: 
         holder.tvDirector.setText(pelicula.director)
         Picasso.get().load(pelicula.URL).into(holder.ivPelicula)
 
-        holder.layoutPelicula.setOnClickListener{
-        val intent = Intent(activity, DetallesPeliculas::class.java)
-            intent.putExtra("pelicula",pelicula)
+        holder.layoutPelicula.setOnClickListener {
+            val intent = Intent(activity, DetallesPeliculas::class.java)
+            intent.putExtra("pelicula", pelicula)
+            intent.putExtra("posicion", position)
             activity.startActivity(intent)
 
         }
