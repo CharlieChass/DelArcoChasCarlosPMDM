@@ -4,9 +4,9 @@ import android.app.Application
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.data.PeliculasDataMockImpl
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
 
-class App: Application() {
+class App : Application() {
 
-    companion object{
+    companion object {
         var peliculas: MutableList<Pelicula> = ArrayList()
     }
 

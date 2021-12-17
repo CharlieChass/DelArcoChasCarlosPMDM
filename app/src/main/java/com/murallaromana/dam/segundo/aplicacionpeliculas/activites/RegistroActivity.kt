@@ -20,8 +20,8 @@ class RegistroActivity : AppCompatActivity() {
             val sharedPref = getSharedPreferences("peliculas", Context.MODE_PRIVATE)
             val editor = sharedPref.edit()
 
-            editor.putString("email",binding.tieCorreo.text.toString())
-            editor.putString("password",binding.ettCrearContraseA.text.toString())
+            editor.putString("email", binding.tieCorreo.text.toString())
+            editor.putString("password", binding.ettCrearContraseA.text.toString())
             editor.apply()
 
             val intent = Intent(this, LoginActivity::class.java)

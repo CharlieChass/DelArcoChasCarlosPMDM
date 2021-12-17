@@ -66,7 +66,7 @@ class AddPeliculaActivity : AppCompatActivity() {
             binding.TieResumen.setText(pelicula.resumen)
 
             binding.btAAdirPelicula.setOnClickListener() {
-                val nuevaPelicula : Pelicula
+                val nuevaPelicula: Pelicula
 
                 nuevaPelicula = Pelicula(
                     binding.TieTitulo.text.toString(),
@@ -77,14 +77,24 @@ class AddPeliculaActivity : AppCompatActivity() {
                     binding.TieURL.text.toString(),
                     binding.TieResumen.text.toString()
                 )
-                App.peliculas.find{it.titulo == pelicula.titulo}?.titulo = nuevaPelicula.titulo
-                App.peliculas.find{it.genero == pelicula.genero}?.genero = nuevaPelicula.genero
-                App.peliculas.find{it.director == pelicula.director}?.director = nuevaPelicula.director
-                App.peliculas.find{it.telefonoDirector == pelicula.telefonoDirector}?.telefonoDirector = nuevaPelicula.telefonoDirector
-                App.peliculas.find{it.nota == pelicula.nota}?.nota = nuevaPelicula.nota
-                App.peliculas.find{it.URL == pelicula.URL}?.URL = nuevaPelicula.URL
-                App.peliculas.find{it.resumen == pelicula.resumen}?.resumen = nuevaPelicula.resumen
+
+                val p = App.peliculas.find { it.titulo == pelicula.titulo }?.apply {
+                    titulo = nuevaPelicula.titulo
+                    genero = nuevaPelicula.genero
+                    director = nuevaPelicula.director
+                    telefonoDirector = nuevaPelicula.telefonoDirector
+                    nota = nuevaPelicula.nota
+                    URL = nuevaPelicula.URL
+                    resumen = nuevaPelicula.resumen
+                }
                 finish()
+                //App.peliculas.find{it.titulo == pelicula.titulo}?.titulo = nuevaPelicula.titulo
+                //App.peliculas.find{it.genero == pelicula.genero}?.genero = nuevaPelicula.genero
+                //App.peliculas.find{it.director == pelicula.director}?.director = nuevaPelicula.director
+                //App.peliculas.find{it.telefonoDirector == pelicula.telefonoDirector}?.telefonoDirector = nuevaPelicula.telefonoDirector
+                //App.peliculas.find{it.nota == pelicula.nota}?.nota = nuevaPelicula.nota
+                //App.peliculas.find{it.URL == pelicula.URL}?.URL = nuevaPelicula.URL
+                //App.peliculas.find{it.resumen == pelicula.resumen}?.resumen = nuevaPelicula.resumen
             }
         }
     }

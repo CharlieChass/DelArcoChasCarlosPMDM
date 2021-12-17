@@ -2,7 +2,7 @@ package com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades
 
 import java.io.Serializable
 
-data class Pelicula (
+data class Pelicula(
     var titulo: String,
     var genero: String,
     var director: String,
@@ -10,4 +10,4 @@ data class Pelicula (
     var telefonoDirector: String,
     var URL: String,
     var resumen: String
-):Serializable
+) : Serializable

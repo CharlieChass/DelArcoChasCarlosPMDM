@@ -8,7 +8,7 @@ import com.murallaromana.dam.segundo.aplicacionpeliculas.App
 import com.murallaromana.dam.segundo.aplicacionpeliculas.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.aplicacionpeliculas.databinding.PeliculasActivityBinding
 
-class PeliculasActivity :AppCompatActivity() {
+class PeliculasActivity : AppCompatActivity() {
     private lateinit var binding: PeliculasActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class PeliculasActivity :AppCompatActivity() {
         binding = PeliculasActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.fabAAdir.setOnClickListener(){
+        binding.fabAAdir.setOnClickListener() {
             val intent = Intent(this, AddPeliculaActivity::class.java)
             startActivity(intent)
         }
@@ -26,11 +26,12 @@ class PeliculasActivity :AppCompatActivity() {
         super.onResume()
         val layoutManager = LinearLayoutManager(this)
         val listapeliculas = App.peliculas
-        val adapter = ListaPeliculasAdapter(listapeliculas,this)
+        val adapter = ListaPeliculasAdapter(listapeliculas, this)
         binding.rvPeliculas.adapter = adapter
         binding.rvPeliculas.layoutManager = layoutManager
 
     }
+
     override fun onBackPressed() {
         val a = Intent(Intent.ACTION_MAIN)
         a.addCategory(Intent.CATEGORY_HOME)

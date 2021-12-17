@@ -17,8 +17,6 @@ import com.squareup.picasso.Picasso
 import android.R.attr.phoneNumber
 
 
-
-
 class DetallesPeliculas : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetallesPeliculasBinding
@@ -34,7 +32,7 @@ class DetallesPeliculas : AppCompatActivity() {
         Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
 
         //LLamada Director
-        binding.tvDetallesTelefono.setOnClickListener(){
+        binding.tvDetallesTelefono.setOnClickListener() {
             val intent2 = Intent(Intent.ACTION_DIAL)
             intent2.data = Uri.parse("tel:" + binding.tvDetallesTelefono.text.toString())
             startActivity(intent2)
@@ -45,29 +43,30 @@ class DetallesPeliculas : AppCompatActivity() {
         binding.tvDetallesDirector.setText(pelicula.director)
         binding.tvResumen.setText(pelicula.resumen)
 
-        if(pelicula !=null) setTitle(pelicula.titulo)
+        if (pelicula != null) setTitle(pelicula.titulo)
         else setTitle("Nueva Pelicula")
     }
+
     //Asignar el Menu a la página De añadir pelicula
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_detalle_pelicula,menu)
+        menuInflater.inflate(R.menu.menu_detalle_pelicula, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_save_or_update -> {
-               val intent = Intent(this, AddPeliculaActivity::class.java)
+                val intent = Intent(this, AddPeliculaActivity::class.java)
 
                 //TODO Aqui tenemos que hacer los putExtra con datos de la pelicula
                 //igual que en el adapter de la lista para pasar los datos
-                intent.putExtra("pelicula",pelicula)
+                intent.putExtra("pelicula", pelicula)
 
                 //Iniciar la activity
                 startActivity(intent)
                 true
             }
-            R.id.action_delete->{
+            R.id.action_delete -> {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("Eliminar Pelicula")
                     .setMessage("La película seleccionada va a ser eliminada, ¿está seguro?")
@@ -80,7 +79,7 @@ class DetallesPeliculas : AppCompatActivity() {
                     .show()
                 true
             }
-            else ->super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
         return false
     }
