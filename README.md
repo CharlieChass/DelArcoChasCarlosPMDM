@@ -11,7 +11,7 @@
 ## Imagenes de la aplicación
 
 ###### Imagen de Login
-![Imagen de Login](imagenes/Loggin.png)
+![Imagen de Login](imagenes/Login.png)
 ####### Imagen de la Lista de Peliculas
 ![Imagen de lista](imagenes/Lista.png)
 ####### Imagen de Editado o Añadir una Pelicula
