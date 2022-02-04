@@ -32,6 +32,7 @@ class RegistroActivity : AppCompatActivity() {
             val email = binding.tieCorreo.text.toString()
             val contraseña = binding.ettCrearContraseA.text.toString()
             if (binding.tieCorreo.text.toString().length == 0 || binding.ettCrearContraseA.text.toString().length == 0) {
+                alerta("fallo")
                 val adb = AlertDialog.Builder(this)
                 adb.setTitle("Añade Correo o contraseña")
                 adb.setMessage("Correo o Contraseña vacio")
@@ -62,4 +63,12 @@ class RegistroActivity : AppCompatActivity() {
             }
         }
     }
+    fun alerta(mensaje : String){
+        val adb = AlertDialog.Builder(this)
+        adb.setTitle("Añade Correo o contraseña")
+        adb.setMessage(mensaje)
+        adb.setPositiveButton("Aceptar",null)
+        adb.show()
+    }
+
 }
