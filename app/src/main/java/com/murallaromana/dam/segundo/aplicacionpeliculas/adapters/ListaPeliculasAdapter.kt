@@ -14,8 +14,9 @@ import com.murallaromana.dam.segundo.aplicacionpeliculas.activites.DetallesPelic
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
+import retrofit2.Callback
 
-class ListaPeliculasAdapter(val peliculas: MutableList<Pelicula>, val activity: Activity) :
+class ListaPeliculasAdapter(val peliculas: List<Pelicula>?, val activity: Activity) :
     RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
     class PeliculasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -36,24 +37,25 @@ class ListaPeliculasAdapter(val peliculas: MutableList<Pelicula>, val activity: 
     }
 
     override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
-        val pelicula = peliculas.get(position)
+        val pelicula = peliculas?.get(position)
 
-        holder.tvTitulo.setText(pelicula.titulo)
-        holder.tvGenero.setText(pelicula.genero)
-        holder.tvNota.setText(pelicula.nota.toString())
-        holder.tvDirector.setText(pelicula.director)
-        Picasso.get().load(pelicula.URL).into(holder.ivPelicula)
+        holder.tvTitulo.setText(pelicula?.titulo)
+        holder.tvGenero.setText(pelicula?.genero)
+        holder.tvNota.setText(pelicula?.nota.toString())
+        holder.tvDirector.setText(pelicula?.director)
+        Picasso.get().load(pelicula?.URL).into(holder.ivPelicula)
 
         holder.layoutPelicula.setOnClickListener {
             val intent = Intent(activity, DetallesPeliculas::class.java)
             intent.putExtra("pelicula", pelicula)
             intent.putExtra("posicion", position)
-            activity.startActivity(intent)
+
 
         }
     }
 
     override fun getItemCount(): Int {
-        return peliculas.size
+        if (peliculas == null) return 0;
+        else return peliculas.size
     }
 }
