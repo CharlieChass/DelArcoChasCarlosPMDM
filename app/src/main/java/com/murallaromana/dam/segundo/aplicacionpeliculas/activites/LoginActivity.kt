@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         binding.btAceptar.setOnClickListener() {
+            binding.btAceptar.isEnabled=false
 
             val email = binding.tieCorreo.text.toString()
             val contraseña = binding.tieContraseA.text.toString()
@@ -69,6 +70,7 @@ class LoginActivity : AppCompatActivity() {
                             sharedPref.guardar(token)
                             val intent = Intent(context, PeliculasActivity::class.java)
                             startActivity(intent)
+
                         }
                     }
                 })

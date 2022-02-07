@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.murallaromana.dam.segundo.aplicacionpeliculas.RetrofitClient
 import com.murallaromana.dam.segundo.aplicacionpeliculas.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.aplicacionpeliculas.databinding.PeliculasActivityBinding
+import com.murallaromana.dam.segundo.aplicacionpeliculas.model.data.Preferences
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,6 +17,7 @@ import retrofit2.Response
 
 class PeliculasActivity : AppCompatActivity() {
     private lateinit var binding: PeliculasActivityBinding
+    private lateinit var pref: Preferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +30,16 @@ class PeliculasActivity : AppCompatActivity() {
             val intent = Intent(this, AddPeliculaActivity::class.java)
             startActivity(intent)
         }
+
+
         //CONFIGURAR API-RETROFIT
-        val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas()
+        pref=Preferences(applicationContext)
+        val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas("Bearer "+ pref.recogerToken())
         llamadaApi.enqueue(object : Callback<List<Pelicula>>{
             override fun onResponse(call: Call<List<Pelicula>>, response: Response<List<Pelicula>>) {
                 val listPeliculas = response.body()
-                Toast.makeText(context,response.body().toString(),Toast.LENGTH_SHORT).show()
+
+                //Toast.makeText(context,response.body().toString(),Toast.LENGTH_SHORT).show()
 
                 val adapter = ListaPeliculasAdapter(listPeliculas, context)
                 binding.rvPeliculas.adapter = adapter

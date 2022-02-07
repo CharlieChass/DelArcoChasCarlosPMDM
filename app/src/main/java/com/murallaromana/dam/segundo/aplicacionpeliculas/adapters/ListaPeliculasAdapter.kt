@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.murallaromana.dam.segundo.aplicacionpeliculas.R
 import com.murallaromana.dam.segundo.aplicacionpeliculas.activites.DetallesPeliculas
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
-import retrofit2.Callback
 
 class ListaPeliculasAdapter(val peliculas: List<Pelicula>?, val activity: Activity) :
     RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
@@ -32,7 +31,6 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>?, val activity: Activi
         val layoutInflater =
             LayoutInflater.from(parent.context).inflate(R.layout.item_pelicula, parent, false)
 
-
         return PeliculasViewHolder(layoutInflater)
     }
 
@@ -49,7 +47,7 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>?, val activity: Activi
             val intent = Intent(activity, DetallesPeliculas::class.java)
             intent.putExtra("pelicula", pelicula)
             intent.putExtra("posicion", position)
-
+            activity.startActivity(intent)
 
         }
     }

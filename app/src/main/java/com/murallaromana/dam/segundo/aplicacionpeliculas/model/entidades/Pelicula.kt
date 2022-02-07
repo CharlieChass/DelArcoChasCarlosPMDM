@@ -5,10 +5,10 @@ import java.io.Serializable
 
 data class Pelicula(
     @SerializedName("title") var titulo: String,
-    var genero: String,
-    var director: String,
-    var nota: Double,
-    var telefonoDirector: String,
-    var URL: String,
-    var resumen: String
+    @SerializedName("genre")var genero: String,
+    @SerializedName("directorFullname")var director: String,
+    @SerializedName("rating")var nota: Double,
+    @SerializedName("directorPhone")var telefonoDirector: String,
+    @SerializedName("imageUrl")var URL: String,
+    @SerializedName("description")var resumen: String
 ) : Serializable

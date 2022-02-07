@@ -12,4 +12,7 @@ class Preferences (
     fun guardar(token: String){
             Pref.edit().putString("token",token).commit()
         }
+    fun recogerToken() : String? {
+        return Pref.getString("token", "")
+    }
 }
