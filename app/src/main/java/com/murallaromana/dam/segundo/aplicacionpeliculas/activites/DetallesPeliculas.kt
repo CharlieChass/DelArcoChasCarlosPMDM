@@ -46,13 +46,13 @@ class DetallesPeliculas : AppCompatActivity() {
                 Log.d("respuesta: onResponse", response.toString())
 
                 val pelicula = response.body()
-        //        val adapter = ListaPeliculasAdapter(pelicula, context)
+                //        val adapter = ListaPeliculasAdapter(pelicula, context)
                 if (pelicula != null) {
                     Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
                     binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
-                      binding.tvDetallesDirector.setText(pelicula.director)
-                      binding.tvResumen.setText(pelicula.resumen)
-                      title = pelicula.titulo
+                    binding.tvDetallesDirector.setText(pelicula.director)
+                    binding.tvResumen.setText(pelicula.resumen)
+                    title = pelicula.titulo
                 }
 
 //            LLamada Director
@@ -83,7 +83,7 @@ class DetallesPeliculas : AppCompatActivity() {
                 //TODO Aqui tenemos que hacer los putExtra con datos de la pelicula
                 //igual que en el adapter de la lista para pasar los datos
 
-           //     intent.putExtra("pelicula", pelicula)
+                //intent.putExtra("pelicula", pelicula)
 
                 //Iniciar la activity
                 startActivity(intent)
@@ -94,7 +94,24 @@ class DetallesPeliculas : AppCompatActivity() {
                 builder.setTitle("Eliminar Pelicula")
                     .setMessage("La película seleccionada va a ser eliminada, ¿está seguro?")
                     .setPositiveButton("Aceptar") { _, _ ->
+
                         //Eliminar Pelicula
+                        var id = intent.getStringExtra("id")
+                        val llamadaApi =
+                            RetrofitClient.apiRetrofit.delete("Bearer " + pref.recogerToken(), id)
+                        llamadaApi.enqueue(object : Callback<Pelicula> {
+                            override fun onResponse(
+                                call: Call<Pelicula>,
+                                response: Response<Pelicula>
+                            ) {
+                                Log.d("respuesta: onResponse", response.toString())
+
+                            }
+
+                            override fun onFailure(call: Call<Pelicula>, t: Throwable) {
+                                Log.d("respuesta: onFailure", t.toString())
+                            }
+                        })
 
                         Toast.makeText(this, "Pelicula eliminada.", Toast.LENGTH_SHORT).show()
                         finish()
