@@ -1,51 +1,68 @@
 package com.murallaromana.dam.segundo.aplicacionpeliculas.activites
 
-import android.R.attr
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.murallaromana.dam.segundo.aplicacionpeliculas.App
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.murallaromana.dam.segundo.aplicacionpeliculas.R
+import com.murallaromana.dam.segundo.aplicacionpeliculas.RetrofitClient
+import com.murallaromana.dam.segundo.aplicacionpeliculas.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.aplicacionpeliculas.databinding.ActivityDetallesPeliculasBinding
+import com.murallaromana.dam.segundo.aplicacionpeliculas.model.data.Preferences
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
+import com.murallaromana.dam.segundo.aplicacionpeliculas.utils.Alertas
 import com.squareup.picasso.Picasso
-import android.R.attr.phoneNumber
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class DetallesPeliculas : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetallesPeliculasBinding
-    private lateinit var pelicula: Pelicula
-    private var posicionPelicula: Int = 0
+    private lateinit var pref: Preferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetallesPeliculasBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        pelicula = App.peliculas[posicionPelicula]
+        val context = this
+        val layoutManager = LinearLayoutManager(this)
+        var id = intent.getStringExtra("id")
 
-//        pelicula = intent.extras?.get("pelicula") as Pelicula
+        //CONFIGURAR RETROFIT
+        pref = Preferences(applicationContext)
 
-        posicionPelicula = intent.getIntExtra("position", 0)
+        val llamadaApi =
+            RetrofitClient.apiRetrofit.getById("Bearer " + pref.recogerToken(), id)
+        llamadaApi.enqueue(object : Callback<Pelicula> {
+            override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>) {
+                Log.d("respuesta: onResponse", response.toString())
 
-        Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
+                val pelicula = response.body()
+        //        val adapter = ListaPeliculasAdapter(pelicula, context)
+                if (pelicula != null) {
+                    Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
+                }
 
-        //LLamada Director
-        binding.tvDetallesTelefono.setOnClickListener() {
-            val intent2 = Intent(Intent.ACTION_DIAL)
-            intent2.data = Uri.parse("tel:" + binding.tvDetallesTelefono.text.toString())
-            startActivity(intent2)
+//            LLamada Director
+                binding.tvDetallesTelefono.setOnClickListener() {
+                    val intent2 = Intent(Intent.ACTION_DIAL)
+                    intent2.data = Uri.parse("tel:" + binding.tvDetallesTelefono.text.toString())
+                    startActivity(intent2)
+                }
+            }
 
-        }
-
-
-        if (pelicula != null) setTitle(pelicula.titulo)
-        else setTitle("Nueva Pelicula")
+            override fun onFailure(call: Call<Pelicula>, t: Throwable) {
+                Log.d("respuesta: onFailure", t.toString())
+            }
+        })
     }
 
     //Asignar el Menu a la página De añadir pelicula
@@ -61,7 +78,8 @@ class DetallesPeliculas : AppCompatActivity() {
 
                 //TODO Aqui tenemos que hacer los putExtra con datos de la pelicula
                 //igual que en el adapter de la lista para pasar los datos
-                intent.putExtra("pelicula", pelicula)
+
+           //     intent.putExtra("pelicula", pelicula)
 
                 //Iniciar la activity
                 startActivity(intent)
@@ -73,7 +91,7 @@ class DetallesPeliculas : AppCompatActivity() {
                     .setMessage("La película seleccionada va a ser eliminada, ¿está seguro?")
                     .setPositiveButton("Aceptar") { _, _ ->
                         //Eliminar Pelicula
-                        App.peliculas.remove(pelicula)
+
                         Toast.makeText(this, "Pelicula eliminada.", Toast.LENGTH_SHORT).show()
                         finish()
                     }.setNegativeButton("Cancelar", null)
@@ -84,12 +102,13 @@ class DetallesPeliculas : AppCompatActivity() {
         }
         return false
     }
+
     //Mostrar cambios al editar la pelicula
-    override fun onResume() {
-        super.onResume()
-        binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
-        binding.tvDetallesDirector.setText(pelicula.director)
-        binding.tvResumen.setText(pelicula.resumen)
-        title = pelicula.titulo
-    }
+    // override fun onResume() {
+    //  super.onResume()
+    //  binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
+    //  binding.tvDetallesDirector.setText(pelicula.director)
+    //  binding.tvResumen.setText(pelicula.resumen)
+    //  title = pelicula.titulo
+    //  }
 }

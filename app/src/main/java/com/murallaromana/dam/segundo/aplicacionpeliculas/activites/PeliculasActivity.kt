@@ -33,10 +33,14 @@ class PeliculasActivity : AppCompatActivity() {
 
 
         //CONFIGURAR API-RETROFIT
-        pref=Preferences(applicationContext)
-        val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas("Bearer "+ pref.recogerToken())
-        llamadaApi.enqueue(object : Callback<List<Pelicula>>{
-            override fun onResponse(call: Call<List<Pelicula>>, response: Response<List<Pelicula>>) {
+        pref = Preferences(applicationContext)
+        val llamadaApi: Call<List<Pelicula>> =
+            RetrofitClient.apiRetrofit.getPeliculas("Bearer " + pref.recogerToken())
+        llamadaApi.enqueue(object : Callback<List<Pelicula>> {
+            override fun onResponse(
+                call: Call<List<Pelicula>>,
+                response: Response<List<Pelicula>>
+            ) {
                 val listPeliculas = response.body()
 
                 //Toast.makeText(context,response.body().toString(),Toast.LENGTH_SHORT).show()
@@ -45,6 +49,7 @@ class PeliculasActivity : AppCompatActivity() {
                 binding.rvPeliculas.adapter = adapter
                 binding.rvPeliculas.layoutManager = layoutManager
             }
+
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
                 Log.d("Prueba", t.message.toString())
             }

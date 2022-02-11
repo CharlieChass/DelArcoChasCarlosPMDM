@@ -12,6 +12,7 @@ import com.murallaromana.dam.segundo.aplicacionpeliculas.model.data.Preferences
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicula
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Token
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Usuario
+import com.murallaromana.dam.segundo.aplicacionpeliculas.utils.Alertas
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +22,8 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref: Preferences
+    private lateinit var alertas: Alertas
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,25 +36,21 @@ class LoginActivity : AppCompatActivity() {
 
         //Crear Cuenta
         binding.btCrear.setOnClickListener() {
-            val intent = Intent(this,RegistroActivity::class.java)
+            val intent = Intent(this, RegistroActivity::class.java)
             startActivity(intent)
             finish()
         }
         binding.btAceptar.setOnClickListener() {
-            binding.btAceptar.isEnabled=false
+               binding.btAceptar.isEnabled=false
 
             val email = binding.tieCorreo.text.toString()
             val contraseña = binding.tieContraseA.text.toString()
 
             if (binding.tieCorreo.text.toString().length == 0 || binding.tieContraseA.text.toString().length == 0) {
-                val adb = AlertDialog.Builder(this)
-                adb.setTitle("Datos Incorrectos")
-                adb.setMessage("Usuario o Contraseña vacio")
-                adb.setPositiveButton("Aceptar") { dialog, which -> }
-                adb.show()
+                alertas.mostrarAlerta("Datos Incorrectos", "Usuario o Contraseña Vacio")
             } else {
-                val call: Call<Token> = RetrofitClient.apiRetrofit.login(Usuario(null, email, contraseña))
-
+                val call: Call<Token> =
+                    RetrofitClient.apiRetrofit.login(Usuario(null, email, contraseña))
                 call.enqueue(object : Callback<Token> {
                     override fun onFailure(call: Call<Token>, t: Throwable) {
                         Log.d("respuesta: onFailure", t.toString())
@@ -60,11 +59,10 @@ class LoginActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<Token>, response: Response<Token>) {
                         Log.d("respuesta: onResponse", response.toString())
                         if (response.code() > 299 || response.code() < 200) {
-                            val adb = AlertDialog.Builder(context)
-                            adb.setTitle("Inicio Fallido")
-                            adb.setMessage("El usuario o la contraseña no coinciden")
-                            adb.setPositiveButton("Aceptar") { dialog, which -> }
-                            adb.show()
+                            alertas.mostrarAlerta(
+                                "Inicio Fallido",
+                                "El usuario o la contraseña no coiciden"
+                            )
                         } else {
                             val token = response.body()?.token.toString()
                             sharedPref.guardar(token)

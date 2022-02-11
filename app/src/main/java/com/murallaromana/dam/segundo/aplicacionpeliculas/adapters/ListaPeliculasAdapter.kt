@@ -25,6 +25,7 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>?, val activity: Activi
         val ivPelicula = itemView.findViewById<ImageView>(R.id.ivPelicula)
         val layoutPelicula = itemView.findViewById<ConstraintLayout>(R.id.layoutPelicula)
         val tvDirector = itemView.findViewById<TextView>(R.id.tvDirector)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
@@ -45,10 +46,8 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>?, val activity: Activi
 
         holder.layoutPelicula.setOnClickListener {
             val intent = Intent(activity, DetallesPeliculas::class.java)
-            intent.putExtra("pelicula", pelicula)
-            intent.putExtra("posicion", position)
+            intent.putExtra("id", pelicula?.id)
             activity.startActivity(intent)
-
         }
     }
 

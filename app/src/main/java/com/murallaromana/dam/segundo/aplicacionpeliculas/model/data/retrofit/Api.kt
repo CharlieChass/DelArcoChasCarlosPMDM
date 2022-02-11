@@ -5,15 +5,11 @@ import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Pelicul
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Token
 import com.murallaromana.dam.segundo.aplicacionpeliculas.model.entidades.Usuario
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Api {
     @GET("movies")
     fun getPeliculas(@Header("Authorization") token: String?): Call<List<Pelicula>>
-
 
 
     @POST("users/signup")
@@ -22,4 +18,12 @@ interface Api {
     @POST("users/login")
     fun login(@Body usuario: Usuario): Call<Token>
 
+    @GET("movies/{id}")
+    fun getById(@Header("Authorization") token: String?,
+                @Path("id") id: String?
+               ): Call<Pelicula>
+
+    @DELETE("movies/{id}")
+    fun delete(@Header("Authorization")token: String?,
+               @Path("id") id:String?): Call<Pelicula>
 }
