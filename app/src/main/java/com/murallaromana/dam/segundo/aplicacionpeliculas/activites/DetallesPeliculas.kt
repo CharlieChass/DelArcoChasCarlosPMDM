@@ -49,6 +49,10 @@ class DetallesPeliculas : AppCompatActivity() {
         //        val adapter = ListaPeliculasAdapter(pelicula, context)
                 if (pelicula != null) {
                     Picasso.get().load(pelicula.URL).into(binding.ivDetallePelicula)
+                    binding.tvDetallesTelefono.setText(pelicula.telefonoDirector)
+                      binding.tvDetallesDirector.setText(pelicula.director)
+                      binding.tvResumen.setText(pelicula.resumen)
+                      title = pelicula.titulo
                 }
 
 //            LLamada Director
