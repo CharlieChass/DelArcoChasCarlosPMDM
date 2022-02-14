@@ -106,6 +106,7 @@ class DetallesPeliculas : AppCompatActivity() {
                             ) {
                                 Log.d("respuesta: onResponse", response.toString())
 
+
                             }
 
                             override fun onFailure(call: Call<Pelicula>, t: Throwable) {

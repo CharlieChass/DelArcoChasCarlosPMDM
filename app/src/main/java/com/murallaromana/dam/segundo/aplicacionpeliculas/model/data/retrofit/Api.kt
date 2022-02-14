@@ -26,4 +26,12 @@ interface Api {
     @DELETE("movies/{id}")
     fun delete(@Header("Authorization")token: String?,
                @Path("id") id:String?): Call<Pelicula>
+
+    @POST("movies")
+    fun crear(@Header("Authorization") token:String,
+                @Body pelicula: Pelicula): Call<Pelicula>
+
+    @PUT("movies")
+    fun editar(@Header("Authorization") token:String,
+                @Body pelicula: Pelicula): Call<Pelicula>
 }
